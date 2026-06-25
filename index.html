@@ -1,9 +1,437 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NaokiThread | Portfolio</title>
+    <meta name="description" content="Naoki Ito - physician and medical AI researcher focused on clinical machine learning, medical informatics, and surgical AI.">
+    <title>Naoki Ito | Physician and Medical AI Researcher</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fa;
+        --paper: #ffffff;
+        --ink: #191b1f;
+        --muted: #666b73;
+        --line: #d9e0e7;
+        --accent: #0b5cad;
+        --accent-2: #7a4a12;
+        --soft: #e9f2ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 168px;
+        gap: 32px;
+        align-items: end;
+        padding: 48px 0 36px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--accent-2);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 5.4rem;
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin: 22px 0 0;
+        color: #34383f;
+        font-size: 1.22rem;
+      }
+
+      .avatar {
+        width: 168px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        object-fit: cover;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .link-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 254, 251, 0.78);
+        color: var(--ink);
+        font-size: 0.92rem;
+        font-weight: 650;
+      }
+
+      .section {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 28px;
+        padding: 34px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.08rem;
+        line-height: 1.35;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card,
+      .publication,
+      .timeline-item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--paper);
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .card p,
+      .publication p,
+      .timeline-item p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      .tag {
+        display: inline-flex;
+        margin-bottom: 10px;
+        color: var(--accent-2);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 132px minmax(0, 1fr);
+        gap: 18px;
+        padding: 16px 18px;
+      }
+
+      .date {
+        color: var(--accent-2);
+        font-size: 0.92rem;
+        font-weight: 800;
+      }
+
+      .publications {
+        display: grid;
+        gap: 12px;
+      }
+
+      .publication {
+        padding: 16px 18px;
+      }
+
+      .meta {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill {
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--soft);
+        color: #183d37;
+        font-size: 0.9rem;
+        font-weight: 650;
+      }
+
+      footer {
+        padding-top: 28px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: min(100% - 24px, 640px);
+          padding-top: 18px;
+        }
+
+        .hero,
+        .section {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          gap: 24px;
+          padding-top: 30px;
+        }
+
+        .avatar {
+          width: 128px;
+          grid-row: 1;
+        }
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        .lead {
+          font-size: 1.06rem;
+        }
+
+        .grid,
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-item {
+          gap: 6px;
+        }
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Physician / Medical AI / Clinical Machine Learning</p>
+          <h1>Naoki Ito</h1>
+          <p class="lead">
+            Second-year junior resident at Sano Kosei General Hospital, building
+            at the intersection of medicine, machine learning, and clinical
+            product development.
+          </p>
+          <nav class="links" aria-label="Profile links">
+            <a class="link-pill" href="https://github.com/NaokiThread">GitHub</a>
+            <a class="link-pill" href="https://pubmed.ncbi.nlm.nih.gov/?term=Naoki+Ito">PubMed</a>
+            <a class="link-pill" href="https://cloud.google.com/blog/ja/products/ai-machine-learning/a-team-of-doctors-using-natural-language-to-navigate-a-3d-human-anatomy-atlas">Google Cloud feature</a>
+          </nav>
+        </div>
+        <img class="avatar" src="https://github.com/NaokiThread.png" alt="Naoki Ito GitHub avatar">
+      </header>
+
+      <section class="section" aria-labelledby="profile-heading">
+        <h2 id="profile-heading">Profile</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">Current</span>
+            <h3>Junior Resident, Sano Kosei General Hospital</h3>
+            <p>PGY-2 physician with a research background in medical informatics, diagnostic AI, and clinical machine learning.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Building</span>
+            <h3>Quadka Inc.</h3>
+            <p>Developing a healthcare technology product. Public launch details are coming soon.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Recognition</span>
+            <h3>Anatom-AI, Agentic AI Hackathon with Google Cloud</h3>
+            <p>Awarded for a natural-language 3D anatomy atlas built with Vertex AI and Gemini.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Focus</span>
+            <h3>Clinical AI that clinicians can use</h3>
+            <p>Interested in deployable tools for bedside decision support, surgical video understanding, and patient-specific visualization.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">2025-present</div>
+            <div>
+              <h3>Junior Resident, Sano Kosei General Hospital</h3>
+              <p>Second-year resident physician.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2024 Jun-</div>
+            <div>
+              <h3>Research Intern, Novartis Institutes for BioMedical Research</h3>
+              <p>Oncology department, Cambridge, Boston.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2022-</div>
+            <div>
+              <h3>Medical Student Researcher, The University of Tokyo</h3>
+              <p>Department of Hygiene, Faculty of Medicine. Explored visual AI applications in diagnostic pathology.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2022-</div>
+            <div>
+              <h3>Medical Student Research Assistant, TXP Medical Inc.</h3>
+              <p>Worked as a data scientist in medical informatics.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2021-</div>
+            <div>
+              <h3>Medical Student Research Assistant, Tokyo TMS Clinic</h3>
+              <p>Department of Clinical Laboratory Center, Medical Corporation Besli Association.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="publications-heading">
+        <h2 id="publications-heading">Publications</h2>
+        <div class="publications">
+          <article class="publication">
+            <h3><a href="https://pubmed.ncbi.nlm.nih.gov/41118380/">Development and validation of a bedside-available machine learning model to predict discrepancies between SaO2 and SpO2</a></h3>
+            <div class="meta">Raito Sato, <strong>Naoki Ito</strong>, et al. PLoS One. 2025. PMID: 41118380. DOI: 10.1371/journal.pone.0334350.</div>
+          </article>
+          <article class="publication">
+            <h3><a href="https://doi.org/10.1016/j.ejogrb.2025.114394">Pioneering AI in surgery: Deep learning for scene recognition in laparoscopic hysterectomy</a></h3>
+            <div class="meta">Co-author. European Journal of Obstetrics &amp; Gynecology and Reproductive Biology. 2025. DOI: 10.1016/j.ejogrb.2025.114394.</div>
+          </article>
+          <article class="publication">
+            <h3>Developing a Temporal Deep Learning Model for Surgical Phase Recognition in Total Laparoscopic Hysterectomy</h3>
+            <div class="meta">Shunsuke Nishimori, et al. Medical Dataway AG, Zug, Switzerland. Co-author.</div>
+          </article>
+          <article class="publication">
+            <h3>The Accuracy and Potential Racial and Ethnic Biases of GPT-4 in the Diagnosis and Triage of Health Conditions: Evaluation Study</h3>
+            <div class="meta"><strong>Ito N</strong>, Kadomatsu S, Fujisawa M, et al. JMIR Medical Education. 2023;9:e47532.</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">2024</div>
+            <div>
+              <h3>MD, The University of Tokyo</h3>
+              <p>Faculty of Medicine, Tokyo, Japan.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2019</div>
+            <div>
+              <h3>Enrolled in the Faculty of Medicine, The University of Tokyo</h3>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2019</div>
+            <div>
+              <h3>High School Diploma, Kaisei High School</h3>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="awards-heading">
+        <h2 id="awards-heading">Awards</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">2026</div>
+            <div>
+              <h3><a href="https://cloud.google.com/blog/ja/products/ai-machine-learning/a-team-of-doctors-using-natural-language-to-navigate-a-3d-human-anatomy-atlas">Anatom-AI featured by Google Cloud</a></h3>
+              <p>Award-winning project from Agentic AI Hackathon with Google Cloud: a natural-language interface for navigating a 3D human anatomy atlas.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2023</div>
+            <div>
+              <h3>3rd place, Big Data Machine Learning in Healthcare</h3>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Interests</h2>
+        <div>
+          <div class="skills">
+            <span class="skill">Clinical machine learning</span>
+            <span class="skill">Medical informatics</span>
+            <span class="skill">Surgical video AI</span>
+            <span class="skill">Diagnostic pathology AI</span>
+            <span class="skill">Generative AI agents</span>
+            <span class="skill">Healthcare product development</span>
+            <span class="skill">Shorinji Kempo, 2nd-degree black belt</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Last updated June 2026. Selected publication and project details link to public sources where available.</p>
+      </footer>
+    </main>
+  </body>
 </html>
